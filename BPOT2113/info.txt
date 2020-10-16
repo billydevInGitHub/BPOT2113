@@ -1,0 +1,7 @@
+this is Ant project origianlly created in Eclipse,
+now we just grab some of the source code to this maven project and did not build and run it.
+So we just use some source code for reference.
+
+very low possibility to build this project again.
+
+original code still available: D:\Backup\PM1000\Billydev080107\wsCW7\BPOT2113_AP_MiniEbill

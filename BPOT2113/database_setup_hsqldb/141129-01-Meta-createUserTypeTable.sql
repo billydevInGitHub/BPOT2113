@@ -1,0 +1,1 @@
+create table usertype (usertype integer not null, homepage varchar(255),description varchar(20) )

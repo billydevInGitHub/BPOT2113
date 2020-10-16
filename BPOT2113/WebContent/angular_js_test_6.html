@@ -1,0 +1,61 @@
+<html ng-app="reportApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
+    <script>
+      var countryApp = angular.module('reportApp', ['ngRoute']);
+
+      countryApp.config(function($routeProvider) {
+        $routeProvider.
+          when('/', {
+            templateUrl: 'report-list.html',
+            controller: 'ReportListCtrl'
+          }).
+          when('/:reportId', {
+            templateUrl: 'report-detail.html',
+            controller: 'ReportDetailCtrl'
+          }).
+          otherwise({
+            redirectTo: '/'
+          });
+      });
+
+      countryApp.factory('reports', function($http){
+        return {
+          list: function (callback){
+            $http({
+              method: 'GET',
+              url: 'reports.json',
+              cache: true
+            }).success(callback);
+          },
+          find: function(id, callback){
+            $http({
+              method: 'GET',
+              url: 'report_' + id + '.json',
+              cache: true
+            }).success(callback);
+          }
+        };
+      });
+
+      countryApp.controller('ReportListCtrl', function ($scope, reports){
+        reports.list(function(reports) {
+          $scope.reports = reports;
+        });
+      });
+
+      countryApp.controller('ReportDetailCtrl', function ($scope, $routeParams, reports){
+        reports.find($routeParams.reportId, function(report) {
+          $scope.report = report;
+        });
+      });
+
+    </script>
+  </head>
+  <body>
+    <div ng-view></div>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+@charset "UTF-8";
+/* styles for screens larger than 801px wide */
+@media screen and (min-width:601px){
+body {
+}
+
+#wrapper {
+	width: 80%;
+	min-width: 700px;
+	max-width: 1000px;
+	padding: 0em;
+	margin: 0 auto;
+}
+
+#header {
+	background-color: green;
+	height: 125px;
+	width:730px;
+	background-image: url(../images/meb-banner-wide.png); 
+	background-repeat: no-repeat; 
+	background-position: center;
+}
+
+#content {
+	-moz-column-count:3; /* Firefox */
+	-webkit-column-count:3; /* Safari and Chrome */
+	column-count:3;
+	-moz-column-gap:40px; /* Firefox */
+	-webkit-column-gap:40px; /* Safari and Chrome */
+	column-gap:40px;
+}
+
+#footer {
+	
+}
+#tabs {
+	font-size: medium; 
+}
+table {
+	font-size: medium; 
+	width: 400px;
+}
+}
+
+/* styles for screens up to 800px wide */
+@media screen and (max-width:600px){
+body {
+}
+
+#wrapper {
+	width: 80%;
+	min-width: 400px;
+	max-width: 750px;
+	padding: 0em;
+	margin: 0 auto;
+}
+
+#header {
+	background-color: aqua;
+	height: 90px;
+	width:390px;
+	background-image: url(../images/meb-banner-medium.png); 
+	background-repeat: no-repeat; 
+	background-position: center;
+}
+
+#content {
+	-moz-column-count:2; /* Firefox */
+	-webkit-column-count:2; /* Safari and Chrome */
+	column-count:2;
+	-moz-column-gap:40px; /* Firefox */
+	-webkit-column-gap:40px; /* Safari and Chrome */
+	column-gap:40px;
+}
+
+#footer {
+	
+}
+#tabs {
+	font-size:small; 
+}
+table {
+	font-size:small; 
+	width: 300px;
+}
+}
+
+
+
+/* styles for screens up to 480px wide */
+@media screen and (max-width:480px){
+body {
+}
+
+#wrapper {
+	width: 80%;
+	min-width: 200px;
+	max-width: 400px;
+	padding: 0em;
+	margin: 0 auto;
+}
+
+#header {
+	background-color: yellow;
+	height: 45px;
+	width:167px;
+	background-image: url(../images/meb-banner-small.png); 
+	background-repeat: no-repeat; 
+	background-position: center;
+}
+
+#content {
+	-moz-column-count:1; /* Firefox */
+	-webkit-column-count:1; /* Safari and Chrome */
+	column-count:1;
+}
+
+#footer {
+	
+}
+#tabs {
+	font-size: xx-small; 
+}
+table {
+	font-size: xx-small; 
+	width: 150px;
+}
+}

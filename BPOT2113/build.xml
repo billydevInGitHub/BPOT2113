@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<project name="AP_WebApp" default="all" basedir=".">
+
+	<property name="project.name" value="AP_MiniEbill" />
+	<property name="build.folder.name" value="antBuild" />
+	<property name="dirs.base" value="${basedir}" />
+	<property name="classdir" value="${dirs.base}/${build.folder.name}/classes" />
+	<property name="src" value="${dirs.base}/src" />
+	<property name="web" value="${dirs.base}/WebContent" />
+	<property name="deploymentdescription" value="${dirs.base}/build/deploymentdescriptors" />
+	<property name="warFile" value="${project.name}.war" />
+	<property name="warDir" value="${dirs.base}/${build.folder.name}/war" />
+	<property name="java.lib" value="C:\Program Files\Java\jre7\lib" />
+	<property name="server.lib" value="C:\BillyInstalledApplications\tomcat7\apache-tomcat-7.0.19\lib" />
+	<property name="web.lib" value="${dirs.base}\lib" />
+	<path id="classpath">
+		<fileset dir="${java.lib}">
+			<include name="**/*" />
+		</fileset>
+		<fileset dir="${server.lib}">
+			<include name="**/*" />
+		</fileset>
+		<fileset dir="${web.lib}">
+			<include name="**/*" />
+		</fileset>
+	</path>
+
+	<target name="clean">
+		<mkdir dir="${dirs.base}/${build.folder.name}" />
+		<delete>
+			<fileset dir="${dirs.base}/${build.folder.name}" includes="**/*" />
+		</delete>
+	</target>
+
+	<target name="init" depends="clean">
+		<!-- Create Web-inf ,Meta-inf and classes directories -->
+		<mkdir dir="${classdir}" />
+		<mkdir dir="${warDir}/WEB-INF" />
+		<mkdir dir="${warDir}/WEB-INF/classes" />
+		<mkdir dir="${warDir}/META-INF" />
+	</target>
+
+	<!-- Main target -->
+	<target name="all" depends="init,build,buildWar" />
+
+
+	<!-- Compile Java Files and store in /build/src directory -->
+	<target name="build" depends="init">
+		<javac srcdir="${src}" destdir="${classdir}" debug="true" includes="**/*.java">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<!-- Create the War File -->
+	<target name="buildWar" depends="build">
+		<copy todir="${warDir}/WEB-INF/classes">
+			<fileset dir="${classdir}" includes="**/*.class" />
+		</copy>
+
+		<copy todir="${warDir}">
+			<fileset dir="${web}" includes="**/*.*" />
+		</copy>
+
+		<!-- Create war file and place in ear directory -->
+		<jar jarfile="${dirs.base}/${build.folder.name}/${warFile}"  basedir="${warDir}" />
+	</target>
+
+</project>

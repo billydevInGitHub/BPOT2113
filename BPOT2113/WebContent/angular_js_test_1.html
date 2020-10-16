@@ -1,0 +1,18 @@
+<html ng-app="billyAgApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Billy Angular.js TestPage</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script>
+      var billyAgApp = angular.module('billyAgApp', []);
+      billyAgApp.controller('BillyCtrl', function ($scope){
+        $scope.names = ['Larry', 'Curly', 'Moe','ss','asasd'];
+      });
+    </script>
+  </head>
+  <body ng-controller="BillyCtrl">
+    <ul>
+      <li ng-repeat="billyname in names">{{billyname}}</li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+
+
+(1) Login and show home page
+    
+    login as  SYS_USER1, no password , it show Toolkit page, then click user maintenance, will list all users; 
+
+    login as ADMIN_USER1, no password, it shows Toolkit page, then click user maintenance, will list all users; 
+
+    login as NORMALUSER1, no password, it show normal user home page; 
+
+    login as user id other than the above, it will show invalid password ! 
+    
+(2) Assume user 
+    (a) login as SYS_USER1, click user maintenance, select one of the listed normal user, then assume user; 
+    
+        go to the assumed user information page, click assume, then go to the confirmation page , click confirm button,         
+        then it go to home page of the normal user; 
+        
+        then click the logout button in the bottom, come back to the sys_user1 home page;  
+        
+    (b) Muptiple level user assume, select sys_user1, then assume admin_user, then assume sys_user, etc, logout to to return ; 
+    
+
+(3) Tab added to the page 
+    click different tabs will show different content ; 
+    
+(4) CSS media selector added to the style sheet, 
+    when using different screen size, the display will be quite different ;       
+    Test  within firefox ( not within eclipse);  
+    Also tested within the ipadpeek.com 
